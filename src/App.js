@@ -1,27 +1,29 @@
 import React from "react";
-import Header from "./Component/Header";
-import Products from "./Component/Products";
+import Header from "./Components/Header";
+import Products from "./Components/Products";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import DataProvider from "./Component/DataProvider";
-import Details from "./Component/Details";
+import { DataProvider } from "./Components/DataProvider";
+import Details from "./Components/Details";
+import Cart from "./Components/Cart";
 
-const App = () => {
+function App() {
   return (
     <DataProvider>
       <div className="App">
         <Router>
           <Header />
+
           <section>
             <Routes>
-              <Route path="/" element={<Products />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/products/:id" element={<Details />} />
+              <Route path="products" element={<Products />} />
+              <Route path="products/:id" element={<Details />} />
+              <Route path="cart" element={<Cart />} />
             </Routes>
           </section>
         </Router>
       </div>
     </DataProvider>
   );
-};
+}
 
 export default App;
