@@ -20,7 +20,7 @@ export default function Cart() {
   }, [cart]);
 
   const reduction = (id) => {
-    cart.forEach((item) => {
+    cart.map((item) => {
       if (item._id === id) {
         item.count === 1 ? (item.count = 1) : (item.count -= 1);
       }
@@ -28,7 +28,7 @@ export default function Cart() {
     setCart([...cart]);
   };
   const increase = (id) => {
-    cart.forEach((item) => {
+    cart.map((item) => {
       if (item._id === id) {
         item.count += 1;
       }
@@ -38,13 +38,19 @@ export default function Cart() {
 
   const removeProduct = (id) => {
     if (window.confirm("Do you want to delete this product?")) {
-      cart.forEach((item, index) => {
+      cart.map((item, index) => {
         if (item._id === id) {
           cart.splice(index, 1);
         }
       });
       setCart([...cart]);
     }
+  };
+
+  const removeAllHandler = () => {
+    // setCart([]); first way to remove all elements
+    cart.splice(0, cart.length); //second way to remove all elements
+    setCart([...cart]);
   };
 
   if (cart.length === 0)
@@ -82,13 +88,16 @@ export default function Cart() {
             </div>
 
             <div>
-              <button onClick={() => removeProduct(product._id)}>Remove To Cart</button>
+              <button onClick={() => removeProduct(product._id)}>
+                Remove To Cart
+              </button>
             </div>
           </div>
         </div>
       ))}
 
       <div className="total">
+        <button onClick={() => removeAllHandler()}>Remove All</button>
         <Link to="/payment">Payment</Link>
         <h3>Total: $ {total}</h3>
       </div>
