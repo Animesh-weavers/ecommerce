@@ -20,7 +20,18 @@ export default function Products() {
             </h3>
             <p>{product.description}</p>
             <h4>${product.price}</h4>
-            <button onClick={() => addCart(product._id)}>Add to cart</button>
+            {product.key == false ? (
+              <button
+                onClick={() => {
+                  product.key = true;
+                  addCart(product._id);
+                }}
+              >
+                Add to cart
+              </button>
+            ) : (
+              <button>Go To Cart</button>
+            )}
           </div>
         </div>
       ))}
