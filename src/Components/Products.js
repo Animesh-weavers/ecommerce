@@ -20,7 +20,7 @@ export default function Products() {
             </h3>
             <p>{product.description}</p>
             <h4>${product.price}</h4>
-            {product.key == false ? (
+            {product.key === false ? (
               <button
                 onClick={() => {
                   product.key = true;
