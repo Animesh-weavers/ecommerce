@@ -30,7 +30,9 @@ export default function Products() {
                 Add to cart
               </button>
             ) : (
-              <button>Go To Cart</button>
+              <Link to='/cart'>
+                <button>Go To Cart</button>
+              </Link>
             )}
           </div>
         </div>
