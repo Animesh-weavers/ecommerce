@@ -1,8 +1,6 @@
 import React,{useContext, useState, useRef} from 'react'
 import {useParams} from 'react-router-dom'
 import {DataContext} from './DataProvider'
-import Colors from './Colors'
-import Sizes from './Sizes'
 import DetailsThumb from './DetailsThumb'
 import {Link} from 'react-router-dom'
 
@@ -40,8 +38,6 @@ export default function Details() {
                        <div className="box-details">
                            <h2 title={product.title}>{product.title}</h2>
                            <h3>${product.price}</h3>
-                           <Colors colors={product.colors} />
-                           <Sizes sizes={product.sizes} />
                            <p>{product.description}</p>
                            <p>{product.content}</p>
                            <DetailsThumb images={product.images} setIndex={setIndex} />
