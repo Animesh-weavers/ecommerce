@@ -1,10 +1,11 @@
 import React from "react";
 import Header from "./Components/Header";
-import Products from "./Components/Products";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { DataProvider } from "./Components/DataProvider";
 import Details from "./Components/Details";
 import Cart from "./Components/Cart";
+import Home from './Components/Home.js';
+
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
 
           <section>
             <Routes>
-              <Route path="products" element={<Products />} />
+              <Route path="/" element={<Home />} />
               <Route path="products/:id" element={<Details />} />
               <Route path="cart" element={<Cart />} />
             </Routes>

@@ -3,6 +3,10 @@ import React, { createContext, useState, useEffect } from 'react'
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
+    const sliderImages = [
+        { id: 0, src: 'https://images.unsplash.com/photo-1505751171710-1f6d0ace5a85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ymx1ZXRvb3RoJTIwaGVhZHBob25lc3xlbnwwfHwwfHw%3D&w=1000&q=80' },
+        { id: 1, src: 'https://assets.tatacliq.com/medias/sys_master/images/27444789313566.jpg' }
+    ]
     const [products, setProducts] = useState([
         {
             "_id": "1",
@@ -86,6 +90,34 @@ export const DataProvider = (props) => {
             "count": 1,
             "key": false
 
+        },
+        {
+            "_id": "7",
+            "title": "Wacth Product 06",
+            "images": [
+                "https://i.pcmag.com/imagery/reviews/03LMEamSJfAavMLXIQbRZwT-1.fit_lim.size_1050x591.v1593021884.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_54dIopigISbvaNz-w9XlSe4tqzWL6K8LBYDDjgcPGs7na5S6ClGTdL1kEBqTpPFwdY&usqp=CAU"
+            ],
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            "price": 107,
+            "count": 1,
+            "key": false
+
+        },
+        {
+            "_id": "8",
+            "title": "Wacth Product 06",
+            "images": [
+                "https://i.pcmag.com/imagery/reviews/03LMEamSJfAavMLXIQbRZwT-1.fit_lim.size_1050x591.v1593021884.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_54dIopigISbvaNz-w9XlSe4tqzWL6K8LBYDDjgcPGs7na5S6ClGTdL1kEBqTpPFwdY&usqp=CAU"
+            ],
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            "price": 108,
+            "count": 1,
+            "key": false
+
         }
     ])
 
@@ -105,6 +137,7 @@ export const DataProvider = (props) => {
         }
     }
 
+
     useEffect(() => {
         const dataCart = JSON.parse(localStorage.getItem('dataCart'))
         if (dataCart) setCart(dataCart)
@@ -118,7 +151,8 @@ export const DataProvider = (props) => {
     const value = {
         products: [products, setProducts],
         cart: [cart, setCart],
-        addCart: addCart
+        addCart: addCart,
+        sliderImages: [sliderImages]
     }
 
 

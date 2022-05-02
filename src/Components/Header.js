@@ -25,11 +25,10 @@ export default function Header() {
             </div>
 
             <div className="logo">
-                <h1><Link to="/products">Headox</Link></h1>
+                <h1><Link to="/">Headox</Link></h1>
             </div>
             <ul style={styleMenu}>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/products">Products</Link></li>
                 <li><Link to="/">About</Link></li>
                 <li><Link to="/">Contact</Link></li>
                 <li><Link to="/">Login / Register</Link></li>
