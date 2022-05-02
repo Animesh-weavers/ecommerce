@@ -20,20 +20,24 @@ export default function Products() {
             </h3>
             <p>{product.description}</p>
             <h4>${product.price}</h4>
-            {product.key === false ? (
-              <button
-                onClick={() => {
-                  product.key = true;
-                  addCart(product._id);
-                }}
-              >
-                Add to cart
-              </button>
-            ) : (
-              <Link to='/cart'>
-                <button>Go To Cart</button>
-              </Link>
-            )}
+            <div style={{ display: 'flex', 'justifyContent': 'space-around' }}>
+              {product.key === false ? (
+                <button
+                  onClick={() => {
+                    product.key = true;
+                    addCart(product._id);
+                  }}
+                  style={{ 'marginRight': '1rem' }}
+                >
+                  Add to cart
+                </button>
+              ) : (
+                <Link to='/cart'>
+                  <button style={{ 'width':'90%' }}>Go To Cart</button>
+                </Link>
+              )}
+              <button>BUY NOW</button>
+            </div>
           </div>
         </div>
       ))}
